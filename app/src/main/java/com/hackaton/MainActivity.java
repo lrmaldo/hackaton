@@ -89,21 +89,21 @@ public class MainActivity extends AppCompatActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         modelo_inicio item = (modelo_inicio) parent.getItemAtPosition(position);
 
-        //Intent intent = new Intent(this, ActividadDetalle.class);
-        //intent.putExtra(ActividadDetalle.EXTRA_PARAM_ID, item.getId());
+        Intent intent = new Intent(this, DetallActivity.class);
+        intent.putExtra(DetallActivity.EXTRA_PARAM_ID, item.getId());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
-//            ActivityOptionsCompat activityOptions =
-  //                  ActivityOptionsCompat.makeSceneTransitionAnimation(
-    //                        this,
-      //                      new Pair<View, String>(view.findViewById(R.id.imagen_coche),
-        //                            ActividadDetalle.VIEW_NAME_HEADER_IMAGE)
-          //          );
+            ActivityOptionsCompat activityOptions =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            this,
+                           new Pair<View, String>(view.findViewById(R.id.imagen_coche),
+                                  DetallActivity.VIEW_NAME_HEADER_IMAGE)
+                   );
 
-//            ActivityCompat.startActivity(this, intent, activityOptions.toBundle());
+            ActivityCompat.startActivity(this, intent, activityOptions.toBundle());
         } else{
-          //  startActivity(intent);
+            startActivity(intent);
         }
   //
     }
