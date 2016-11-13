@@ -11,11 +11,12 @@ import com.hackaton.modelos.modelo_inicio;
 public class DetallActivity extends AppCompatActivity {
 
     public static String EXTRA_PARAM_ID ="com.hackaton.extra.ID";
-    public  static String Extra_PARAM_descripcion = "com.hackaton.extra.descrip";
+
     public static String VIEW_NAME_HEADER_IMAGE="imagen_compartida";
 
 modelo_inicio modelo;
     TextView des;
+    TextView Titulo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +24,10 @@ modelo_inicio modelo;
 
         modelo = modelo_inicio.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID, 0));
         loadImageParallax(modelo.getIdDrawable());
-        des = ( TextView) findViewById(R.id.descripcion);
+        des = (TextView) findViewById(R.id.descripcion);
+        Titulo = (TextView) findViewById( R.id.titulo_detalle);
 cargarDescripcion(modelo_inicio.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID,0)).getDescripcion());
-
+cargarTitulo(modelo_inicio.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID,0)).getTitulo());
     }
 
 
@@ -41,6 +43,11 @@ cargarDescripcion(modelo_inicio.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID,0
 
     private  void cargarDescripcion(String id){
        des.setText(id);
+    }
+
+
+    private  void cargarTitulo(String id){
+Titulo.setText(id);
     }
 
 

@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">Hackaton</string>
-
+    <string name="server_client_id_web">1025178749118-siq0qdcu6v5pkdkijtnu9dn0a5ddpv4v.apps.googleusercontent.com</string>
+    <string name="server_client_id">1025178749118-i6fqikp69gdhd8gl7o3cgjs0hrj5i01r.apps.googleusercontent.com</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="nombre_transicion_imagen">imagen_compartida</string>
+    <string name="picture_chooser_title">Selecciona o toma una foto para enviar</string>
+    <string name="error_required_field">Requerimiento</string>
+    <string name="post_upload_progress_message">Espere por favor subiendo foto</string>
+    <string name="profile_progress_message">Logeando...</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="drawer_profile_title">Perfil</string>
+    <string name="drawer_settings_title">Configuracion</string>
+    <string name="drawer_your_feed_title">Tus seguidores</string>
+    <string name="new_comment_hint">Escribir comentario</string>
+    <string name="user_logged_out_error">No te has Logeado</string>
+    <string name="user_info_no_name">usuario</string>
+    <string name="title_activity_user_detail">Informacion Usuario</string>
+    <string name="error_user_not_signed_in">ocurrio un problema</string>
+    <string name="error_upload_task_create">Ocurrio un problema</string>
+    <string name="follow_user_error">ocurio un problema</string>
 </resources>

@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     private GridView gridView;
    FirebaseAdapter adapter;
     FirebaseHelper helper;
+    expandibleGrid expa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +57,23 @@ public class MainActivity extends AppCompatActivity
         gridView = (GridView) findViewById(R.id.grid);
         adapter = new FirebaseAdapter(this);
         gridView.setAdapter(adapter);
+        //gridView.setOnItemClickListener(this);
+
+       //gridView = (expandibleGrid)  findViewById(R.id.grid);
+        //gridView
+
         gridView.setOnItemClickListener(this);
+
+        //expa = new expandibleGrid(gridView.getContext());
         CollapsingToolbarLayout collapser =
                 (CollapsingToolbarLayout) findViewById(R.id.collapser);
         collapser.setTitle("Noticias Nuevas");
         collapser.setCollapsedTitleTextColor(getResources().getColor(R.color.backgroundColor));
         // Cambiar título
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            gridView.setNestedScrollingEnabled(true);
+        }
 
         loadImageParallax(R.drawable.portada);// Cargar Imagen
 
@@ -85,6 +100,45 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.quejas:
+                showSnackBar("Quejas...");
+                Intent intent = new Intent(this, QuejasActivity.class);
+                startActivity(intent);
+
+
+                return true;
+            case R.id.notificacion:
+                showSnackBar("Se");
+                return true;
+            case R.id.login:
+                showSnackBar("Por favor espere...");
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Proyecta una {@link Snackbar} con el string usado
+     *
+     * @param msg Mensaje
+     */
+    private void showSnackBar(String msg) {
+        Snackbar
+                .make(findViewById(R.id.coordinator), msg, Snackbar.LENGTH_LONG)
+                .show();
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         modelo_inicio item = (modelo_inicio) parent.getItemAtPosition(position);
@@ -105,8 +159,10 @@ public class MainActivity extends AppCompatActivity
         } else{
             startActivity(intent);
         }
+
   //
     }
+
 
 
 

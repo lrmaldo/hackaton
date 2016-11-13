@@ -33,6 +33,7 @@
                     android:layout_height="wrap_content">
                     <!--Etiqueta Perfil -->
                     <TextView
+                        android:id="@+id/titulo_detalle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Título"

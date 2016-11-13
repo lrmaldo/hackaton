@@ -71,9 +71,10 @@
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/app_bar"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
@@ -91,7 +92,9 @@
         android:horizontalSpacing="@dimen/espacio_grilla"
         android:numColumns="auto_fit"
         android:padding="@dimen/espacio_grilla"
-        android:verticalSpacing="@dimen/espacio_grilla" />
+        android:verticalSpacing="@dimen/espacio_grilla"
+        android:choiceMode="multipleChoice"
+        />
 
 
     </LinearLayout>
